@@ -1,12 +1,12 @@
 import './App.css';
-import Selectgenre from './pages/Authflow/Selectgenre'
+import Selectgenre from './pages/Authflow/Selectgenre';
 import {useEffect, useState} from 'react'
 
 const client_id = '012a6e8fe6d04bb187c14add7af395f0'
 const client_secret = '82690458d09147fc9e2dee78b0b8fe51'
 
 function App() {
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState<string[]>([])
   useEffect(() => {
     const getToken = (async () => {
       let authParams = {
