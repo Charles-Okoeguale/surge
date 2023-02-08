@@ -1,6 +1,5 @@
-import React from "react";
 import { Box, Typography} from "@mui/material"
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 import { AppleSvg, GoogleSvg, LogoSVG } from '../../../components/Svg';
 import Button from "@mui/material/Button";
 import { Theme } from "@mui/material";

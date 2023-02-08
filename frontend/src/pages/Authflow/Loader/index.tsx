@@ -3,7 +3,7 @@ import { Theme, Typography } from "@mui/material";
 import { Box } from '@mui/system';
 import LinearProgress from '@mui/material/LinearProgress';
 import {useState, useEffect} from 'react'
-import { clear } from 'console';
+
 
 const Loader = () => {
     const classes  = useStyles();
