@@ -3,6 +3,7 @@ import Selectgenre from './pages/Authflow/Selectgenre';
 import {useEffect, useState} from 'react'
 import Signup from './pages/Authflow/Signup';
 import Username from './pages/Authflow/Username';
+import Loader from './pages/Authflow/Loader';
 
 const client_id = '012a6e8fe6d04bb187c14add7af395f0'
 const client_secret = '82690458d09147fc9e2dee78b0b8fe51'
@@ -40,9 +41,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      {/* <Selectgenre genres={genres}/> */}
-      <Signup />
-      {/* <Username /> */}
+        <Loader/>
     </div> 
   );
 }

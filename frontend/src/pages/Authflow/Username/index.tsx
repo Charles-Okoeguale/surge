@@ -1,16 +1,13 @@
-import React from "react";
 import { Box, Typography, OutlinedInput} from "@mui/material"
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 import {  LogoSVG } from '../../../components/Svg';
 import Button from "@mui/material/Button";
 import { Theme } from "@mui/material";
-import { color } from "@mui/system";
+
 
 
 function Username() {
-
     const classes = useStyles();
-
   return (
     <Box className={classes.root}>
         <Box className={classes.container}>
@@ -48,8 +45,7 @@ function Username() {
 
 export default Username;
 
-const useStyles = makeStyles((theme: Theme)=>
-    ({
+const useStyles = makeStyles((theme: Theme) => ({
     root:{
         display: "flex",
         margin: "auto",
