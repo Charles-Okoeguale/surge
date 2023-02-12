@@ -9,7 +9,7 @@ import BackgroundAnimation from "../../../components/Animation";
 
 
 
-function Login() {
+function Signup() {
     const classes = useStyles();
   return (
     <Box className={classes.root}>
@@ -18,7 +18,7 @@ function Login() {
                 <LogoSVG/>
              </Box>
             <Box className={classes.content}>   
-            <Typography variant="h4">Hey, Welcome Back!</Typography>
+            <Typography variant="h4">Get Started With Surge</Typography>
             <Typography variant="body1">Get the best out of music everyday and anyday or today with reviews too.</Typography>
             <Box className={classes.googleButton}>
                 <Box className={classes.googleSVG}>
@@ -32,22 +32,23 @@ function Login() {
                 fontWeight: "600",
                 lineHeight: "1.2rem"
                 }}>
-                    LOGIN WITH GOOGLE
+                    CONTINUE WITH GOOGLE
                 </Typography>
             </Box>
             <Customdivider/>
-            <Typography variant="h5">Email or Username</Typography>
+            <Typography variant="h5">Email</Typography>
+            <OutlinedInput/>
+            <Typography variant="h5">Username</Typography>
             <OutlinedInput/>
             <Box sx={{display: 'flex', justifyContent: 'space-between', width: '90%'}}>
             <Typography variant="h2">Password</Typography>
-            <Typography variant="h1">Forgot Password</Typography>
             </Box>
             <OutlinedInput/>
             <Box className={classes.checkbox}>
             <Checkbox/>
             <Typography variant="caption">By signing in i agree to the <span style={{color: 'white'}}>TCs.</span></Typography>
             </Box>
-            <Button variant="contained">LOGIN</Button>
+            <Button variant="contained">SIGNUP</Button>
             <Typography variant="body2">Dont have an account yet? <span style={{color: '#10B970'}}>Sign Up</span></Typography>
             </Box>
         </Box>
@@ -59,7 +60,7 @@ function Login() {
   )
 }
 
-export default Login;
+export default Signup;
 
 const useStyles = makeStyles((theme: Theme) => ({
     root:{
@@ -121,7 +122,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     content:{
        width: '90%',
        marginLeft: '3.75rem',
-       marginTop: "4.56rem",
+       marginTop: "4rem",
        display: "flex",
        flexDirection: "column",
        "& h4" : {
@@ -129,7 +130,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         alignSelf: 'start',
         letterSpacing: '-0.1rem',
         color: '#FFFFFF',
-        fontSize : '40px'
+        fontSize : '3rem'
        },
        "& h6" : {
         fontWeight: '600',
@@ -148,14 +149,14 @@ const useStyles = makeStyles((theme: Theme) => ({
         fontSize: '1em',
         fontStyle: 'italic',
         letterSpacing: '-0.05rem',
-        marginTop: '2.4rem',
+        marginTop: '1rem',
         marginBottom: '0.75rem'
        }, 
        "& h2" : {
         alignSelf: 'start',
         fontWeight: '600',
         color: '#FFFFFF',
-        fontSize: '16px',
+        fontSize: '1.1rem',
         fontStyle: 'italic',
         letterSpacing: '-0.05rem',
         marginTop: '1.28rem',
@@ -174,7 +175,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
     button:{
         width: "90%",
-        height: "3.75rem",
+        height: "4.75rem",
         background: "green",
         borderRadius: "1rem",
         color: " #10B970",

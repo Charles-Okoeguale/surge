@@ -15,7 +15,7 @@ const Customdivider = () => {
 const useStyles = makeStyles(() => ({
     root: {
         display: 'flex',
-        marginTop: '2.4rem',
+        marginTop: '0.5rem',
         width: '520px',
         alignItems : 'center',
     },
