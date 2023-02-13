@@ -44,9 +44,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-        {/* <Forgotpassword/> */}
-        {/* <Login /> */}
-        <Signup />
+        <Login />
     </div> 
   );
 }

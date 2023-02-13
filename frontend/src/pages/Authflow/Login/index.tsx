@@ -20,21 +20,12 @@ function Login() {
             <Box className={classes.content}>   
             <Typography variant="h4">Hey, Welcome Back!</Typography>
             <Typography variant="body1">Get the best out of music everyday and anyday or today with reviews too.</Typography>
-            <Box className={classes.googleButton}>
+            <Button variant="text">
                 <Box className={classes.googleSVG}>
                     <GoogleSvg />
                 </Box>
-                <Typography 
-                variant="h6"
-                style={{
-                color: 'white',
-                fontSize: "0.8rem",
-                fontWeight: "600",
-                lineHeight: "1.2rem"
-                }}>
-                    LOGIN WITH GOOGLE
-                </Typography>
-            </Box>
+                <Typography variant="h6">CONTINUE WITH GOOGLE</Typography>
+            </Button>
             <Customdivider/>
             <Typography variant="h5">Email or Username</Typography>
             <OutlinedInput/>
@@ -124,6 +115,19 @@ const useStyles = makeStyles((theme: Theme) => ({
        marginTop: "4.56rem",
        display: "flex",
        flexDirection: "column",
+       "& .MuiButton-text" : {
+        display: 'flex',
+        width: '90%',
+        borderRadius: "1rem",
+        background: 'rgba(255, 255, 255, 0.05);',
+        marginTop: '2.5rem',
+        height: '3.75rem',
+        "& h6": {
+            margin: 'auto',
+            fontSize : '1rem',
+            color : 'rgba(255, 255, 255, 1)'
+        }
+    },
        "& h4" : {
         fontWeight: '600',
         alignSelf: 'start',
@@ -185,23 +189,12 @@ const useStyles = makeStyles((theme: Theme) => ({
         width: "55%",
         backgroundColor:"#172135"
     },
-
     googleSVG: {
         display: "flex",
         width: "3.75rem",
         height: "3.75rem",
         background: "rgba(255, 255, 255, 0.05)",
-        borderRadius: "1rem"
-    },
-    googleButton:{
-        width: "90%",
-        background: 'rgba(255, 255, 255, 0.05);',
-        height: "3.75rem",
-        borderRadius: "16px",
-        display: 'flex',
-        marginTop: '2.5rem',
-        "& h6": {
-            margin: 'auto'
-        }
+        borderRadius: "1rem",
+        marginLeft : '-0.5rem'
     },
 }))
