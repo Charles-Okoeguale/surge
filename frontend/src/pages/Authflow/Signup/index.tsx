@@ -6,11 +6,28 @@ import { Theme } from "@mui/material";
 import Customdivider from "../../../components/Divider";
 import Checkbox from '@mui/material/Checkbox';
 import BackgroundAnimation from "../../../components/Animation";
-
-
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios'
 
 function Signup() {
     const classes = useStyles();
+    const login = useGoogleLogin({
+        onSuccess : async response => { 
+            try {
+                const data = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo",
+                {
+                    headers : {
+                        "Authorization" : `Bearer ${response.access_token}`
+                    }
+                }
+                )
+                console.log(data)
+            } catch (err) {
+                console.log(err)
+            }
+        },
+        onError : () => console.log('error')
+    })
   return (
     <Box className={classes.root}>
         <Box className={classes.container}>
@@ -19,22 +36,13 @@ function Signup() {
              </Box>
             <Box className={classes.content}>   
             <Typography variant="h4">Get Started With Surge</Typography>
-            <Typography variant="body1">Get the best out of music everyday and anyday or today with reviews too.</Typography>
-            <Box className={classes.googleButton}>
+            <Button variant="text" onClick={() => login()}>
                 <Box className={classes.googleSVG}>
                     <GoogleSvg />
                 </Box>
-                <Typography 
-                variant="h6"
-                style={{
-                color: 'white',
-                fontSize: "0.8rem",
-                fontWeight: "600",
-                lineHeight: "1.2rem"
-                }}>
-                    CONTINUE WITH GOOGLE
-                </Typography>
-            </Box>
+                <Typography variant="h6">CONTINUE WITH GOOGLE</Typography>
+            </Button>
+            <Typography variant="body1">Get the best out of music everyday and anyday or today with reviews too.</Typography>    
             <Customdivider/>
             <Typography variant="h5">Email</Typography>
             <OutlinedInput/>
@@ -74,8 +82,11 @@ const useStyles = makeStyles((theme: Theme) => ({
             alignSelf : 'start',
             fontWeight: 400,
             letterSpacing: '-0.05em',
-            fontSize : '14px'
+            fontSize : '14px',
+            marginTop : '0.3rem',
+            fontStyle : 'normal'
         },
+    
         "& 	.MuiButton-contained" : {
             width: "90%",
             height: "3.75rem",
@@ -125,6 +136,19 @@ const useStyles = makeStyles((theme: Theme) => ({
        marginTop: "4rem",
        display: "flex",
        flexDirection: "column",
+       "& .MuiButton-text" : {
+        display: 'flex',
+        width: '90%',
+        borderRadius: "1rem",
+        background: 'rgba(255, 255, 255, 0.05);',
+        marginTop: '2.5rem',
+        height: '3.75rem',
+        "& h6": {
+            margin: 'auto',
+            fontSize : '1rem',
+            color : 'rgba(255, 255, 255, 1)'
+        }
+    },
        "& h4" : {
         fontWeight: '600',
         alignSelf: 'start',
@@ -172,16 +196,6 @@ const useStyles = makeStyles((theme: Theme) => ({
         marginTop: '1.28rem',
        }
     },
-
-    button:{
-        width: "90%",
-        height: "4.75rem",
-        background: "green",
-        borderRadius: "1rem",
-        color: " #10B970",
-        marginTop: '1.5rem'
-    },
-
     aside:{
         width: "55%",
         backgroundColor:"#172135"
@@ -192,17 +206,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         width: "3.75rem",
         height: "3.75rem",
         background: "rgba(255, 255, 255, 0.05)",
-        borderRadius: "1rem"
-    },
-    googleButton:{
-        width: "90%",
-        background: 'rgba(255, 255, 255, 0.05);',
-        height: "3.75rem",
-        borderRadius: "16px",
-        display: 'flex',
-        marginTop: '2.5rem',
-        "& h6": {
-            margin: 'auto'
-        }
+        borderRadius: "1rem",
+        marginLeft : '-0.5rem'
     },
 }))
