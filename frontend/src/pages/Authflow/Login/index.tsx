@@ -6,11 +6,14 @@ import { Theme } from "@mui/material";
 import Customdivider from "../../../components/Divider";
 import Checkbox from '@mui/material/Checkbox';
 import BackgroundAnimation from "../../../components/Animation";
-
+// import { useGoogleLogin } from '@react-oauth/google';
 
 
 function Login() {
     const classes = useStyles();
+    // const login = useGoogleLogin({
+    //     onSuccess : (tokenresponse) => console.log(tokenresponse)
+    // })
   return (
     <Box className={classes.root}>
         <Box className={classes.container}>

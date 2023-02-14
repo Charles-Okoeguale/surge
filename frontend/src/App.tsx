@@ -8,7 +8,7 @@ import Forgotpassword from './pages/Authflow/Forgotpassword';
 const spotify_client_id = '012a6e8fe6d04bb187c14add7af395f0'
 const spotify_client_secret = '82690458d09147fc9e2dee78b0b8fe51'
 
-const googleAuth_client_id = '410017503349-tb5b39su17on90chvids0mjkinu1djqi.apps.googleusercontent.com';
+
 const googleAuth_client_secret = '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';
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-        <Login />
+        <Signup />
     </div> 
   );
 }

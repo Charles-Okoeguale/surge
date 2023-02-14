@@ -6,11 +6,28 @@ import { Theme } from "@mui/material";
 import Customdivider from "../../../components/Divider";
 import Checkbox from '@mui/material/Checkbox';
 import BackgroundAnimation from "../../../components/Animation";
-
-
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios'
 
 function Signup() {
     const classes = useStyles();
+    const login = useGoogleLogin({
+        onSuccess : async response => { 
+            try {
+                const data = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo",
+                {
+                    headers : {
+                        "Authorization" : `Bearer ${response.access_token}`
+                    }
+                }
+                )
+                console.log(data)
+            } catch (err) {
+                console.log(err)
+            }
+        },
+        onError : () => console.log('error')
+    })
   return (
     <Box className={classes.root}>
         <Box className={classes.container}>
@@ -19,7 +36,7 @@ function Signup() {
              </Box>
             <Box className={classes.content}>   
             <Typography variant="h4">Get Started With Surge</Typography>
-            <Button variant="text">
+            <Button variant="text" onClick={() => login()}>
                 <Box className={classes.googleSVG}>
                     <GoogleSvg />
                 </Box>
