@@ -6,7 +6,7 @@ const Customdivider = () => {
   return (
     <Box className={classes.root}>
        <hr className={classes.line}/>
-        <p style={{fontStyle: 'italic', color: 'rgba(255, 255, 255, 0.2)', fontWeight: '600'}}>Or</p>
+        <p style={{fontStyle: 'italic', color: 'rgba(255, 255, 255, 0.2)', fontWeight: '600', margin: 'auto'}}>Or</p>
        <hr className={classes.line}/>
     </Box>
   )
@@ -15,8 +15,8 @@ const Customdivider = () => {
 const useStyles = makeStyles(() => ({
     root: {
         display: 'flex',
-        marginTop: '0.5rem',
-        width: '520px',
+        marginTop: '2rem',
+        width: '40rem',
         alignItems : 'center',
     },
     line : {
