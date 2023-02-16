@@ -15,16 +15,16 @@ app.post("/signup", async (req : Request, res: Response, ) => {
     console.log(req.body)
 })
 
-// async function connect () {
-//     try {
-//         await mongoose.connect(DBURI)
-//         console.log("connected to database")
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+async function connect () {
+    try {
+        await mongoose.connect(DBURI)
+        console.log("connected to database")
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-// connect()
+connect()
 
 app.listen(8000, () => console.log("server running on port 8000"))
 
