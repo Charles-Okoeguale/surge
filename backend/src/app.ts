@@ -14,10 +14,10 @@ const DBURI = "mongodb://Charles-Eguale:14032001@ac-bpx1amm-shard-00-00.lxhxkxl.
 
 app.post("/googlesignup", async (req : Request, res: Response, ) => {
     console.log(req.body)
-    const {email} = req.body
+    const {email, password} = req.body
     const data = new googleModel({
         email : email,
-        password : null
+        password : password
     })
     const val = await data.save()
     res.json(val)
@@ -28,7 +28,7 @@ async function connect () {
         await mongoose.connect(DBURI)
         console.log("connected to database")
     } catch (error) {
-        console.log(error) 
+        console.log(error)
     }
 }
 

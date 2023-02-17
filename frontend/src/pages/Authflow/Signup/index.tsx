@@ -8,8 +8,12 @@ import Checkbox from '@mui/material/Checkbox';
 import BackgroundAnimation from "../../../components/Animation";
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios'
+import { Appcontext } from "../../../context";
+import { useContext } from "react";
+
 
 function Signup() {
+    const {setUserprofile, userprofile} = useContext(Appcontext)
     const classes = useStyles();
     const login = useGoogleLogin({
         onSuccess : async response => { 
@@ -21,9 +25,7 @@ function Signup() {
                     }
                 }
                 )
-             await axios.post("http://localhost:8000/googlesignup", {
-                email : result.data.email
-             })
+                await setUserprofile({...userprofile, email: result.data.email})
             } catch (err) {
                 console.log(err)
             }
