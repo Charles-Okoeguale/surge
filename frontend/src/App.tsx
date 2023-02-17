@@ -6,6 +6,7 @@ import Signup from './pages/Authflow/Signup';
 import Forgotpassword from './pages/Authflow/Forgotpassword';
 import {Appcontext, AppContext} from './context';
 import Selectgenre from './pages/Authflow/Selectgenre';
+import Navigation from './navigation';
 
 const spotify_client_id = '012a6e8fe6d04bb187c14add7af395f0'
 const spotify_client_secret = '82690458d09147fc9e2dee78b0b8fe51'
@@ -47,7 +48,7 @@ function App() {
   }, [])
   return (
     <AppContext>
-      <Signup/>
+      <Navigation/>
     </AppContext> 
   );
 }
