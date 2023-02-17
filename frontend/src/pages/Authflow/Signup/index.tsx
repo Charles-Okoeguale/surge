@@ -21,7 +21,7 @@ function Signup() {
                     }
                 }
                 )
-             await axios.post("http://localhost:4000/signup", {
+             await axios.post("http://localhost:8000/googlesignup", {
                 email : result.data.email
              })
             } catch (err) {
