@@ -8,9 +8,16 @@ import Checkbox from '@mui/material/Checkbox';
 import BackgroundAnimation from "../../../components/Animation";
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios'
+import { Appcontext } from "../../../context";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Signup() {
+    const {setUserprofile, userprofile} = useContext(Appcontext)
     const classes = useStyles();
+    const navigation = useNavigate()
+
     const login = useGoogleLogin({
         onSuccess : async response => { 
             try {
@@ -21,9 +28,8 @@ function Signup() {
                     }
                 }
                 )
-             await axios.post("http://localhost:8000/googlesignup", {
-                email : result.data.email
-             })
+                await setUserprofile({...userprofile, email: result.data.email})
+                navigation('/setup')
             } catch (err) {
                 console.log(err)
             }
