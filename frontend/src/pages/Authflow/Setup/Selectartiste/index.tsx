@@ -1,32 +1,24 @@
 import { Button, Box, Typography, OutlinedInput } from '@mui/material';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
-import {useContext} from 'react';
-import { Appcontext } from '../../../../context';
 
 
-function Selectgenre({genres} : any) {
+function Selectartiste({genres} : any) {
   const classes = useStyles()
-  const {setStage} = useContext(Appcontext)
-
-  
-  const handleClick = () => {
-    setStage(2)
-  }
 
   return (
       <Box className={classes.body}>
         <Box className={classes.container}>
-            <Typography variant='h4'>Select your favorite genre</Typography>
-            <OutlinedInput placeholder='Search for genre'/>
-            <Box className={classes.genreContainer}>
-            {genres?.slice(0, 18).map((item : string, index : number) => 
+            <Typography variant='h4'>Select your favorite artiste</Typography>
+            <OutlinedInput placeholder='Search for artiste'/>
+            <Box className={classes.artisteContainer}>
+            {/* {genres?.slice(0, 18).map((item : string, index : number) => 
               <Box className={classes.genre}>
                 <Typography variant='body1'>{item}</Typography>
               </Box>
-              )}
+              )} */}
             </Box>
-          <Button variant="contained" onClick={handleClick}>NEXT</Button>
+          <Button variant="contained">NEXT</Button>
         </Box>
       </Box>
   )
@@ -53,14 +45,14 @@ const useStyles = makeStyles((theme: Theme) =>
         color: 'white',
         border: '1px solid none',
         margin: 'auto',
-        background: '#172135;'
+        background: ' #172135;'
       },
       "& .MuiButton-contained" : {
         width: "70%",
         height: "3.75rem",
-        background: "rgba(16, 185, 112, 0.1);",
+        background: "rgba(255, 193, 7, 0.1);",
         borderRadius: "1rem",
-        color: " #10B970",
+        color: "rgba(255, 193, 7, 1)",
         marginTop: '9rem',
         fontWeigth: '900',
         fontSize: '1.5rem',
@@ -80,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign : 'center'
     },
 
-    genreContainer: {
+    artisteContainer: {
       display: 'flex',
       width: '80%',
       flexWrap: 'wrap',
@@ -88,7 +80,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: '3rem',
       justifyContent: 'center'
     },
-    genre: {
+    artiste: {
       display: 'flex',
       width: '8rem',
       height: '2.5rem',
@@ -103,7 +95,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default Selectgenre;
+export default Selectartiste;
 
 
 
