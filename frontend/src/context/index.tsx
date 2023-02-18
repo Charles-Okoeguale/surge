@@ -16,8 +16,16 @@ export const AppContext = ({children} : any) => {
     favoriteArtiste : []
   })
   const [stage, setStage] = useState(0)
+  const [genres, setGenres] = useState<string[]>([])
   return (
-    <Appcontext.Provider value={{userprofile, setUserprofile, stage, setStage}}>
+    <Appcontext.Provider value={{
+      userprofile, 
+      setUserprofile, 
+      stage, 
+      setStage, 
+      genres,
+      setGenres
+    }}>
         {children}
     </Appcontext.Provider>
   )
