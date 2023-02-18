@@ -26,7 +26,7 @@ export const AppContext = ({children} : any) => {
       genres,
       setGenres
     }}>
-        {children}
+      {children}
     </Appcontext.Provider>
   )
 }
