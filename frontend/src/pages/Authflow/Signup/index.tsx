@@ -30,6 +30,9 @@ function Signup() {
         },
         onError : (error) => console.log(error)
     })
+    const submitHandler = ()=>{
+        console.log("form submitted")
+    }
   return (
     <Box className={classes.root}>
         <Box className={classes.container}>
@@ -46,20 +49,22 @@ function Signup() {
             </Button>
             <Typography variant="body1">Get the best out of music everyday and anyday or today with reviews too.</Typography>    
             <Customdivider/>
-            <Typography variant="h5">Email</Typography>
-            <OutlinedInput/>
-            <Typography variant="h5">Username</Typography>
-            <OutlinedInput/>
-            <Box sx={{display: 'flex', justifyContent: 'space-between', width: '90%'}}>
-            <Typography variant="h2">Password</Typography>
-            </Box>
-            <OutlinedInput/>
-            <Box className={classes.checkbox}>
-            <Checkbox/>
-            <Typography variant="caption">By signing in i agree to the <span style={{color: 'white'}}>TCs.</span></Typography>
-            </Box>
-            <Button variant="contained">SIGNUP</Button>
-            <Typography variant="body2">Dont have an account yet? <span style={{color: '#10B970'}}>Sign Up</span></Typography>
+            <form onSubmit={submitHandler}>
+                <Typography variant="h5">Email</Typography>
+                <OutlinedInput/>
+                <Typography variant="h5">Username</Typography>
+                <OutlinedInput/>
+                <Box sx={{display: 'flex', justifyContent: 'space-between', width: '90%'}}>
+                <Typography variant="h2">Password</Typography>
+                </Box>
+                <OutlinedInput/>
+                <Box className={classes.checkbox}>
+                <Checkbox/>
+                <Typography variant="caption">By signing in i agree to the <span style={{color: 'white'}}>TCs.</span></Typography>
+                </Box>
+                <Button variant="contained" type='submit'>SIGNUP</Button>
+                <Typography variant="body2">Dont have an account yet? <span style={{color: '#10B970'}}>Sign Up</span></Typography>
+            </form>
             </Box>
         </Box>
         <Box className={classes.aside}>
