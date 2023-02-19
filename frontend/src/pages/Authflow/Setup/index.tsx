@@ -3,7 +3,6 @@ import { Appcontext } from "../../../context";
 import Selectgenre from "./Selectgenre";
 import { getToken } from "../../../utils";
 import Selectartiste from "./Selectartiste";
-import { useNavigate } from "react-router-dom";
 
 const Setup = () => {
     const {stage, setGenres, genres, setStage} = useContext(Appcontext)
