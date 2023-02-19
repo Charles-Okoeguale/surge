@@ -1,17 +1,21 @@
-import { Button, Box, Typography, OutlinedInput } from '@mui/material';
-import { Theme } from "@mui/material";
+import { Button, Box, Typography, OutlinedInput, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import {Theme} from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
-import {useContext} from 'react';
-import { Appcontext } from '../../../../context';
+import {useContext, useState} from 'react';
+import {Appcontext} from '../../../../context';
 
 
 function Selectgenre({genres} : any) {
   const classes = useStyles()
-  const {setStage} = useContext(Appcontext)
+  const {setStage, userprofile, setUserprofile} = useContext(Appcontext)
+  const [formats, setFormats] = useState<string[]>([])
 
-  
-  const handleClick = () => {
-    setStage(2)
+  const handleFormat = (e : React.MouseEvent<HTMLElement>, newFormats : string []) => {
+    setFormats(newFormats)
+  }
+
+  const addGenres = () => {
+    setUserprofile({...userprofile, genres : [...formats]})
   }
 
   return (
@@ -19,14 +23,19 @@ function Selectgenre({genres} : any) {
         <Box className={classes.container}>
             <Typography variant='h4'>Select your favorite genre</Typography>
             <OutlinedInput placeholder='Search for genre'/>
-            <Box className={classes.genreContainer}>
-            {genres?.slice(0, 18).map((item : string, index : number) => 
-              <Box className={classes.genre}>
-                <Typography variant='body1'>{item}</Typography>
-              </Box>
-              )}
-            </Box>
-          <Button variant="contained" onClick={handleClick}>NEXT</Button>
+            <ToggleButtonGroup value={formats} onChange={handleFormat} color="primary">
+            {genres?.slice(0, 11).map((item : string, index : number) => 
+            <ToggleButton key={index} value={item} sx={{"&.MuiToggleButtonGroup-grouped": {
+                borderRadius: "3rem !important",
+                mx: 1.5,
+                border: "1px !important",
+              }
+            }}>
+              {item}
+            </ToggleButton>
+            )}
+            </ToggleButtonGroup>
+          <Button variant="contained" onClick={addGenres}>NEXT</Button>
         </Box>
       </Box>
   )
@@ -46,6 +55,15 @@ const useStyles = makeStyles((theme: Theme) =>
         fontFamily: "Barlow Condensed",
         marginBottom: '2rem',
       },
+      "& .MuiToggleButtonGroup-root" : {
+        display: 'flex',
+        width: '60%',
+        flexWrap: 'wrap',
+        margin: 'auto',
+        marginTop: '3rem',
+        justifyContent: 'center',
+      },
+
       "& .MuiOutlinedInput-root" : {
         width: '80%',
         height: '4rem',
@@ -67,10 +85,16 @@ const useStyles = makeStyles((theme: Theme) =>
         lineHeight: '24px',
         fontFamily: 'Barlow condensed'
       },
-      "& .MuiTypography-body1" : {
+      "& .MuiToggleButton-root": {
         fontFamily : "Barlow Condensed",
+        fontSize: '1.2rem',
         margin: "auto",
-        fontSize: '1.25rem'
+        background: '#172135',
+        color: '#FFFFFF',
+        borderRadius: '624.9rem',
+        marginLeft: 6,
+        marginRight: 6,
+        marginTop: '1.6rem',
       }
     },
     container: {
@@ -78,27 +102,6 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "80%",
       margin: "auto",
       textAlign : 'center'
-    },
-
-    genreContainer: {
-      display: 'flex',
-      width: '80%',
-      flexWrap: 'wrap',
-      margin: 'auto',
-      marginTop: '3rem',
-      justifyContent: 'center'
-    },
-    genre: {
-      display: 'flex',
-      width: '8rem',
-      height: '2.5rem',
-      marginLeft: 6,
-      marginRight: 6,
-      marginTop: '1.6rem',
-      background: '#172135',
-      color: '#FFFFFF',
-      justifyContent: 'center',
-      borderRadius: '624.9rem',
     },
   })
 );
