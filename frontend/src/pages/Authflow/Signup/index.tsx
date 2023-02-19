@@ -1,3 +1,4 @@
+import {useState} from "react"
 import { Box, Typography, OutlinedInput} from "@mui/material"
 import { makeStyles } from "@mui/styles";
 import {  GoogleSvg, LogoSVG } from '../../../components/Svg';
@@ -10,6 +11,14 @@ import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios'
 
 function Signup() {
+    const [form, setForm] = useState({
+       
+        email: "",
+        username: "",
+        password: ""
+        
+    })
+
     const classes = useStyles();
     const login = useGoogleLogin({
         onSuccess : async response => { 
@@ -30,8 +39,10 @@ function Signup() {
         },
         onError : (error) => console.log(error)
     })
-    const submitHandler = ()=>{
-        console.log("form submitted")
+    const submitHandler = ({e}:any)=>{
+        e.preventDefault();
+       
+        console.log('form submitted')
     }
   return (
     <Box className={classes.root}>
@@ -51,13 +62,13 @@ function Signup() {
             <Customdivider/>
             <form onSubmit={submitHandler}>
                 <Typography variant="h5">Email</Typography>
-                <OutlinedInput/>
+                <OutlinedInput value={form.email} onChange = {e=> setForm({...form, email: e.target.value})}/>
                 <Typography variant="h5">Username</Typography>
-                <OutlinedInput/>
+                <OutlinedInput value={form.username} onChange = {e=> setForm({...form, username: e.target.value})}/>
                 <Box sx={{display: 'flex', justifyContent: 'space-between', width: '90%'}}>
                 <Typography variant="h2">Password</Typography>
                 </Box>
-                <OutlinedInput/>
+                <OutlinedInput value={form.password} onChange = {e=> setForm({...form, password: e.target.value})}/>
                 <Box className={classes.checkbox}>
                 <Checkbox/>
                 <Typography variant="caption">By signing in i agree to the <span style={{color: 'white'}}>TCs.</span></Typography>
