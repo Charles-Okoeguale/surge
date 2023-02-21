@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import { Box, Typography, OutlinedInput} from "@mui/material"
 import { makeStyles } from "@mui/styles";
 import {  GoogleSvg, LogoSVG } from '../../../components/Svg';
@@ -18,6 +19,8 @@ function Signup() {
     const classes = useStyles();
     const navigation = useNavigate()
 
+    const {email, password, username} = userprofile
+
     const login = useGoogleLogin({
         onSuccess : async response => { 
             try {
@@ -36,6 +39,16 @@ function Signup() {
         },
         onError : (error) => console.log(error)
     })
+
+    const handleSubmit = async(e: FormEvent<HTMLFormElement>) =>{
+        e.preventDefault();
+        try{
+             navigation('/setup')
+        } catch(err){
+            console.log(err)
+        }
+    }
+
   return (
     <Box className={classes.root}>
         <Box className={classes.container}>
@@ -52,19 +65,21 @@ function Signup() {
             </Button>
             <Typography variant="body1">Get the best out of music everyday and anyday or today with reviews too.</Typography>    
             <Customdivider/>
-            <Typography variant="h5">Email</Typography>
-            <OutlinedInput/>
-            <Typography variant="h5">Username</Typography>
-            <OutlinedInput/>
-            <Box sx={{display: 'flex', justifyContent: 'space-between', width: '90%'}}>
-            <Typography variant="h2">Password</Typography>
-            </Box>
-            <OutlinedInput/>
-            <Box className={classes.checkbox}>
-            <Checkbox/>
-            <Typography variant="caption">By signing in i agree to the <span style={{color: 'white'}}>TCs.</span></Typography>
-            </Box>
-            <Button variant="contained">SIGNUP</Button>
+            <form onSubmit={handleSubmit}>
+                <Typography variant="h5">Email</Typography>
+                <OutlinedInput value={email} name={email} onChange={e=>setUserprofile({...userprofile, email: e.target.value})}/>
+                <Typography variant="h5">Username</Typography>
+                <OutlinedInput value={username} name={username} onChange={e=>setUserprofile({...userprofile, username: e.target.value})}/>
+                <Box sx={{display: 'flex', justifyContent: 'space-between', width: '90%'}}>
+                <Typography variant="h2">Password</Typography>
+                </Box>
+                <OutlinedInput value={password} name={password} onChange={e=>setUserprofile({...userprofile, password: e.target.value})}/>
+                <Box className={classes.checkbox}>
+                <Checkbox/>
+                <Typography variant="caption">By signing in i agree to the <span style={{color: 'white'}}>TCs.</span></Typography>
+                </Box>
+                <Button variant="contained" type='submit'>SIGNUP</Button>
+            </form>
             <Typography variant="body2">Dont have an account yet? <span style={{color: '#10B970'}}>Sign Up</span></Typography>
             </Box>
         </Box>

@@ -2,6 +2,8 @@ import {BrowserRouter, Route, Routes, } from 'react-router-dom';
 import Login from '../pages/Authflow/Login';
 import Setup from '../pages/Authflow/Setup';
 import Signup from '../pages/Authflow/Signup';
+import Selectartiste from '../pages/Authflow/Setup/Selectartiste';
+import Selectgenre from '../pages/Authflow/Setup/Selectgenre';
 
 const Navigation = () => {
     return (
