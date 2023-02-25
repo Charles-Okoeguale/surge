@@ -65,7 +65,7 @@ function Signup() {
             </Button>
             <Typography variant="body1">Get the best out of music everyday and anyday or today with reviews too.</Typography>    
             <Customdivider/>
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
                 <Typography variant="h5">Email</Typography>
                 <OutlinedInput value={email} name={email} onChange={e=>setUserprofile({...userprofile, email: e.target.value})}/>
                 <Typography variant="h5">Username</Typography>
@@ -131,7 +131,8 @@ const useStyles = makeStyles((theme: Theme) => ({
             background: 'rgba(255, 255, 255, 0.05);', 
             height: '3.75rem', 
             width: '90%', 
-            color: 'white'
+            color: 'white',
+            borderColor: "none"
          }
     },
 
