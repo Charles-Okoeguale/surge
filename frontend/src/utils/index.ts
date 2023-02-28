@@ -1,5 +1,5 @@
-const spotify_client_id = '012a6e8fe6d04bb187c14add7af395f0'
-const spotify_client_secret = '82690458d09147fc9e2dee78b0b8fe51'
+const spotify_client_id = `${process.env.SPOTIFY_CLIENT_ID}`
+const spotify_client_secret = `${process.env.SPOTIFY_CLIENT_SECRET}`
 // const googleAuth_client_secret = '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';
 
 
