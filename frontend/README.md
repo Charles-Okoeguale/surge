@@ -31,15 +31,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-XL - (e) jo014 (p) P@ssword4X
-Fresh - (U) UsernameForFresh (p) P@ssword4Fresh
-
-Z - dhian.purnamasari@btn.co.id batarabatara
-Z - sclass@epbfi.com Colnago1949 
-
-185.202.175.29
-569SKwpZHN
-
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
